@@ -1,9 +1,9 @@
 // Component for showing each task in read or edit 
-
 import React from 'react';
 import { View, Text, TextInput, Button, StyleSheet } from 'react-native';
 import CheckBox from 'expo-checkbox';
 
+//Task Item for read or edit
 const TaskItem = ({
   item,
   isEditing,
