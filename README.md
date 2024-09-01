@@ -35,8 +35,13 @@ npm install
 ## Set Up Environment Variables
 
 Create a `.env` file in the taskApp folder in the project directory with the following content, having in mind this is just a test app and the following env works for en Android emulator:
+
+First, go to the taskApp folder:
 ```bash 
 cd taskApp
+```
+Then, create a .env file (mak sure it doesn't have other extentions as txt or any), and paste this content, then save:
+```bash 
 REACT_APP_API_URL=http://10.0.2.2:3000/api/
 ```
 ## Install and Configure Android Studio
