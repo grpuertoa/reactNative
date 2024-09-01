@@ -40,7 +40,7 @@ First, go to the taskApp folder:
 ```bash 
 cd taskApp
 ```
-Then, create a .env file (mak sure it doesn't have other extentions as txt or any), and paste this content, then save:
+Then, create a .env file (make sure it doesn't have other extentions as .txt or any, just and only .env), and paste this content, then save:
 ```bash 
 REACT_APP_API_URL=http://10.0.2.2:3000/api/
 ```
