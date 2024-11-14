@@ -30,7 +30,6 @@ const CreateTask = ({ navigation }) => {
     <SafeAreaView style={styles.container}>
       <Header
         iconSource={require('../assets/create.jpg')}
-        title="Crear Tarea"
       />
       <Image
         source={require('../assets/create.jpg')}

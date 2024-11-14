@@ -1,6 +1,5 @@
-// Component for showing each task in read or edit 
 import React from 'react';
-import { View, Text, TextInput, Button, StyleSheet } from 'react-native';
+import { View, Text, TextInput, StyleSheet, TouchableOpacity } from 'react-native';
 import CheckBox from 'expo-checkbox';
 
 //Task Item for read or edit
@@ -38,9 +37,15 @@ const TaskItem = ({
             <Text style={styles.statusText}>Tarea completada</Text>
           </View>
           <View style={styles.buttonGroup}>
-            <Button title="Guardar" onPress={() => handleSave(item._id)} style={styles.smallButton} />
-            <Button title="Cancelar" onPress={handleEdit} style={styles.smallButton} />
-            <Button title="Eliminar" color="red" onPress={() => handleDelete(item._id)} style={styles.smallButton} />
+            <TouchableOpacity onPress={() => handleSave(item._id)} style={styles.smallButton}>
+              <Text style={styles.buttonText}>Guardar</Text>
+            </TouchableOpacity>
+            <TouchableOpacity onPress={handleEdit} style={styles.smallButton}>
+              <Text style={styles.buttonText}>Cancelar</Text>
+            </TouchableOpacity>
+            <TouchableOpacity onPress={() => handleDelete(item._id)} style={[styles.smallButton, styles.deleteButton]}>
+              <Text style={styles.buttonText}>Eliminar</Text>
+            </TouchableOpacity>
           </View>
         </>
       ) : (
@@ -49,7 +54,9 @@ const TaskItem = ({
           <Text style={styles.description}>{item.description}</Text>
           <Text style={styles.status}>{item.completed ? 'Terminada' : 'No Terminada'}</Text>
           <View style={styles.buttonGroup}>
-            <Button title="Modificar" onPress={() => onEditStart(item)} style={styles.smallButton} />
+            <TouchableOpacity onPress={() => onEditStart(item)} style={styles.smallButton}>
+              <Text style={styles.buttonText}>Modificar</Text>
+            </TouchableOpacity>
           </View>
         </>
       )}
@@ -100,9 +107,23 @@ const styles = StyleSheet.create({
     marginTop: 10,
   },
   smallButton: {
-    fontSize: 12,
-    padding: 5,
+    paddingVertical: 5,
+    paddingHorizontal: 6,
+    borderRadius: 0,
+    backgroundColor: '#007bff',  
+    alignItems: 'center',
+    justifyContent: 'center',
+    flex: 1,
     marginHorizontal: 5,
+    maxWidth: '45%',  
+  },
+  deleteButton: {
+    backgroundColor: 'red',
+  },
+  buttonText: {
+    fontSize: 13,  
+    color: '#fff',
+    textAlign: 'center',
   },
 });
 
