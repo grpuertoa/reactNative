@@ -1,5 +1,3 @@
-// src/screens/HomeScreen.js
-
 import React from 'react';
 import { View, Button, StyleSheet, SafeAreaView, Image, Dimensions, Text } from 'react-native';
 
@@ -9,12 +7,14 @@ const HomeScreen = ({ navigation }) => {
   return (
     <SafeAreaView style={styles.container}>
       <Image
+        testID="homeImage"  
         source={require('../assets/toDo.jpg')}
         style={styles.image}
         resizeMode="contain"
       />
       <View style={styles.buttonContainer}>
         <Button
+          testID="viewTasksButton"  
           title="Ver Tareas"
           onPress={() => navigation.navigate('ViewTask')}
         />

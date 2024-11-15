@@ -5,7 +5,7 @@ import { useTasks } from '../hooks/useTasks';
 import Header from '../components/Header';  
 import TaskItem from '../components/TaskItem';  
 
-//View task screen
+// View task screen
 const ViewTaskScreen = ({ navigation }) => {
   const { tasks, loading, error, removeTask, editTask } = useTasks();
   const [editingTask, setEditingTask] = useState(null);
@@ -46,9 +46,9 @@ const ViewTaskScreen = ({ navigation }) => {
   const renderItem = ({ item, drag }) => (
     <TaskItem
       item={item}
-      isEditing={editingTask === item._id}
+      isEditing={editingTask === item._id} 
       updatedTask={updatedTask}
-      handleEdit={() => setEditingTask(null)}
+      handleEdit={() => handleEdit(item)}  
       handleSave={handleSave}
       handleDelete={handleDelete}
       handleChange={handleChange}
@@ -62,8 +62,8 @@ const ViewTaskScreen = ({ navigation }) => {
   if (loading) {
     return (
       <SafeAreaView style={styles.loadingContainer}>
-        <ActivityIndicator size="large" color="#007BFF" />
-        <Text style={styles.loadingText}>Cargando tareas...</Text>
+        <ActivityIndicator size="large" color="#007BFF" testID="loading-indicator" />
+        <Text style={styles.loadingText} testID="loading-text">Cargando tareas...</Text>
       </SafeAreaView>
     );
   }
@@ -71,7 +71,7 @@ const ViewTaskScreen = ({ navigation }) => {
   if (error) {
     return (
       <SafeAreaView style={styles.loadingContainer}>
-        <Text style={styles.errorText}>Error al cargar tareas: {error}</Text>
+        <Text style={styles.errorText}>{error}</Text>
       </SafeAreaView>
     );
   }

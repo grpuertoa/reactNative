@@ -2,7 +2,9 @@ import React from 'react';
 import { View, Text, TextInput, StyleSheet, TouchableOpacity } from 'react-native';
 import CheckBox from 'expo-checkbox';
 
-//Task Item for read or edit
+
+
+// Task Item for read or edit
 const TaskItem = ({
   item,
   isEditing,
@@ -18,12 +20,14 @@ const TaskItem = ({
       {isEditing ? (
         <>
           <TextInput
+            testID="input-title"  
             style={styles.input}
             value={updatedTask.title}
             onChangeText={(text) => handleChange('title', text)}
             placeholder="Título de la tarea"
           />
           <TextInput
+            testID="input-description"  
             style={styles.input}
             value={updatedTask.description}
             onChangeText={(text) => handleChange('description', text)}
